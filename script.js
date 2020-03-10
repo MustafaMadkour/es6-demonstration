@@ -11,7 +11,7 @@ class Park extends Element {
         this.area = area;
     }
     treeDen() {
-        const density = this.tree / this.area;
+        const density = this.trees / this.area;
         console.log(`${this.name} has a tree density of ${density} trees per km^2.`);
     }
 }
@@ -44,7 +44,7 @@ const allStreets = [
 ];
 function calc(arr) {
     const sum = arr.reduce((prev, cur) => prev+cur, 0);
-    return [sum/arr.length];
+    return [sum, sum/arr.length];
 }
 function parksReport(parks) {
     parks.forEach(cur => cur.treeDen());
