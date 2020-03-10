@@ -42,20 +42,28 @@ const allStreets = [
     new Street('st-c', 2011, 1.7),
     new Street('st-d', 2018, 2.2, 4)
 ];
+
+
 function calc(arr) {
     const sum = arr.reduce((prev, cur) => prev+cur, 0);
-    return [sum, sum/arr.length];
+    return [sum/arr.length];
 }
+
+
 function parksReport(parks) {
     parks.forEach(cur => cur.treeDen());
     const ages = parks.map(cur => new Date().getFullYear() - cur.buildYear);
     const [ageAvg] = calc(ages);
     console.log(`Our ${parks.length} parks have an average of ${ageAvg} years.`);
-};
+}
+
+
 function streetReport(streets) {
-    const [lengthAvg] = calc(streets.map(cur => cur.length));
+    const [lengthAvg] = calc(streets.map(cur => cur.stLength));
     console.log(`Our ${streets.length} streets have an average length of ${lengthAvg} km.`);
     streets.forEach(cur => cur.stClassify());
-};
+}
+
+
 parksReport(allParks);
 streetReport(allStreets);
