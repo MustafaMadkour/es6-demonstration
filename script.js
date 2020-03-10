@@ -53,8 +53,9 @@ function parksReport(parks) {
     console.log(`Our ${parks.length} parks have an average of ${ageAvg} years.`);
 };
 function streetReport(streets) {
-    const lengthAvg = calc(streets.map(cur => cur.length));
+    const [lengthAvg] = calc(streets.map(cur => cur.length));
     console.log(`Our ${streets.length} streets have an average length of ${lengthAvg} km.`);
+    streets.forEach(cur => cur.stClassify());
 };
 parksReport(allParks);
 streetReport(allStreets);
